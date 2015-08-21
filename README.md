@@ -26,7 +26,7 @@ Now it has only two components, I'll create some new component such as Paginatio
   
   Just like use normal `<label>` and `<input>` tag. Every attribute you attach to `Input` except **style**,**onMousedown**     will copy to the internal `<input>` tag in `Input`.
   
-  You can add `style` attribute to `Input`, and then it'll extend the internal wapper style;
+  You can add `style` attribute to `Input`, and then it'll extend the internal wapper style.
   
   If you want `input[type=radio]`, just replace `type` attribute to `radio`: `<Input type='radio' />`, and other usage are     the same;
   
@@ -38,6 +38,7 @@ Now it has only two components, I'll create some new component such as Paginatio
   ![](https://github.com/luokuning/react.beautify-component/blob/master/pics/pic.gif?raw=true)
   
   The above gif animation seems to be not very smooth, might be the tool I use to recorde gif, in fact the animation is        very smooth.
+  
   **Usage:**
   ```html
   <DropList listDatas={['a','b','c']} className='droplist' style={{}} />
