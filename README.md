@@ -37,7 +37,7 @@ Now it has only two components, I'll create some new component such as Paginatio
 
   ![](https://github.com/luokuning/react.beautify-component/blob/master/pics/pic.gif?raw=true)
   
-  The above gif animation seems to be not very smooth, might be the tool I use to recorde gif, in fact the animation is        very smooth.
+  The above gif animation seems to be not very smooth, might cause by the tool I use to recorde gif, in fact the animation is        very smooth.
   
   **Usage:**
   ```html
