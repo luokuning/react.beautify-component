@@ -1,7 +1,7 @@
 #react.beautify-component
 Some beautify component with react, you can understand just a UI component, nothing more.
 If you want to use those component in your project, I suggest you check out the source code (it's very short).
-Now it has only two components, I'll create some new component such as Pagination in some days.
+Now it has only two components, I'll create some new component such as Pagination and Sortable in some days.
 
 1. react.input
   * input[type=checkbox]
