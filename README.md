@@ -40,7 +40,7 @@ Now it has only two components, I'll create some new component such as Paginatio
   The above gif animation seems to be not very smooth, might be the tool I use to recorde gif, in fact the animation is        very smooth.
   **Usage:**
   ```html
-  <DropList listDatas={['a','b','c']} className='droplist' style={} />
+  <DropList listDatas={['a','b','c']} className='droplist' style={{}} />
   ```
   It'll render like that:
   ![](https://github.com/luokuning/react.beautify-component/blob/master/pics/pic5.png?raw=true)
