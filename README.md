@@ -52,21 +52,21 @@ Now it has only two components, I'll create some new component such as Paginatio
 
 You can either include the component in a `<script>` tag (after you've include React and underscore/lodash) or through RequireJS/AMD and CommonJS:
  ```javascript
-    define(['react','underscore','react.input'],function(React,_,Input){
-      var MyComponent=React.createClass({
-        render:function(){
-          return (
-            <div>
-              // ...
-              <Input />
-              // ...
-            </div>
-          );
-        }
-      });
-    })
+ define(['react', 'underscore', 'react.input'],function(React, _, Input){
+   var MyComponent = React.createClass({
+     render:function(){
+       return (
+         <div>
+           // ...
+           <Input />
+           // ...
+         </div>
+       );
+     }
+   });
+ });
   ```
 or
 ```javascript
-var Input=require('react.input');
+var Input = require('react.input');
 ```
