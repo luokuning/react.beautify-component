@@ -32,20 +32,20 @@
 	                    }, 200));
 	                })
 	            };
-			switch(ele.dataset.clickid){
-				case 'drop':
-					this.setState({
-						show:1,
-						down:!this.state.down
-					},downOrUp);
-					break;
-				case 'option':
-					this.setState({
-						down:0,
-						index:ele.dataset.index
-					},downOrUp);
-					break;
-			}
+            switch (ele.dataset.clickid) {
+                case 'drop':
+                    this.setState({
+                        show: 1,
+                        down: !this.state.down
+                    }, downOrUp);
+                    break;
+                case 'option':
+                    this.setState({
+                        down: 0,
+                        index: ele.dataset.index
+                    }, downOrUp);
+                    break;
+            }
 		},
 		render:function(){
 
@@ -98,7 +98,7 @@
 						<ul style={ulStyle} ref='lists' >
 							{
 								this.props.listDatas.map(function(data,i){
-									return <li style={liStyle} data-index={i} data-clickid='option' >{data}</li>
+									return <li style={liStyle} data-index={i} data-clickid='option' key={_.uniqueId('data_')} >{data}</li>
 								},this)
 							}
 						</ul>
