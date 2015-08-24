@@ -49,7 +49,7 @@ Now it has only two components, I'll create some new component such as Paginatio
   Obviously, `listDatas` is a array that will be used to create droplist. `className` and `style` will copy to `DropList` wrapper, so you can change the style as you want. You would like to add `.droplist li:hover{/*...*/}` (in that case classname is `droplist`) to any css file in your project if you want hover affect.
   
   
-**Notice:** all those components rely on [Font-Awesome](http://fortawesome.github.io/Font-Awesome/).If you don't want to include `underscore`, just replace `_.extend' to your own function in source code and make sure it can merge two object.
+**Notice:** all those components rely on [Font-Awesome](http://fortawesome.github.io/Font-Awesome/).If you don't want to include `underscore`, just replace `_.extend` and `_.uniqueId` to your own function in source code and make sure it can merge two object.
 
 You can either include the component in a `<script>` tag (after you've include React and underscore/lodash) or through RequireJS/AMD and CommonJS:
  ```javascript
