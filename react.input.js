@@ -1,14 +1,14 @@
-;(function(factory) {
+;(function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         define(['react', 'underscore'], factory);
     } else if (typeof exports !== 'undefined') {
         var React = require('react'),
             _ = require('underscore');
-        factory(React, _, exports);
+        module.exports=factory(React, _);
     } else {
-        factory(React, _);
+        root.Input = factory(React, _);
     }
-})(function(React, _, exp) {
+})(this, function(React, _) {
 	var Input=React.createClass({
 		getDefaultProps:function(){
 			return {
@@ -24,7 +24,7 @@
 		render:function(){
 			var props=this.props,
 				handleText={
-					cursor:'pointer',
+					cursor:props.cursorAllowed?'pointer':(props.disabled?'not-allowed':'pointer'),
 					paddingLeft:19,
 					paddingTop:1,
 					height:18
@@ -56,24 +56,21 @@
 					textOverflow:'ellipsis',
 					whiteSpace: 'nowrap'
 			});
+			
 			isRadio&&(divStyle.borderRadius=10);
 			return (
 				<span style={wrapper} onMouseDown={props.onMouseDown&&props.onMouseDown} >
 					<input {...other} style={{position:'absolute',top:0,left:0,visibility:'hidden'}} ref='input' />
 					<div onClick={this.handleClick} style={handleText} >
 						<div style={divStyle}  >
-							<i className={isRadio?'icon-circle absolute-middle':'icon-ok absolute-middle'} style={{left:isRadio?0:-1, top:isRadio?0:1,display:props.checked?'inline':'none',transform:isRadio?'scale(.45)':'scale(.8)'}} ></i>
+							<i className={isRadio?'icon-circle absolute-middle':'icon-ok absolute-middle'} style={{left:isRadio?0:-1, top:isRadio?0:1,transform:props.checked?(isRadio?'scale(.45)':'scale(.8)'):'scale(0)',transition:'.1s'}} ></i>
 						</div>
-						{this.props.children}
+						<span style={{color:this.props.disabled?'#ccc':'#333'}} >{this.props.children}</span>
 					</div>
 				</span>
 			);
 		}
 	});
-
-	if(exp){
-		return exp.Input=Input;
-	}
 
 	return Input;
 
