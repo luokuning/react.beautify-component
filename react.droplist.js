@@ -1,14 +1,14 @@
-;(function(factory){
+;(function(root, factory){
     if (typeof define === 'function' && define.amd) {
         define(['react', 'underscore'], factory);
     } else if (typeof exports !== 'undefined') {
         var React = require('react'),
             _ = require('underscore');
-        factory(React, _, exports);
+        module.exports = factory(React, _);
     } else {
-        factory(React, _);
+        root.DropList = factory(React, _);
     }
-})(function(React, _, exp){
+})(this, function(React, _){
 	var DropList=React.createClass({
 		getInitialState:function(){
 			return {
@@ -17,42 +17,47 @@
 				index:0
 			}
 		},
-
+        downOrUp:function() {
+            var self=this,
+                lists=this.refs.lists.getDOMNode();
+            requestAnimationFrame(function() {
+                self.state.down ? (lists.style.transform = 'translateY(0)', self.refs.drop.getDOMNode().style.transform = 'rotate(180deg)') : (lists.style.transform = 'translateY(-100%)', self.refs.drop.getDOMNode().style.transform = 'rotate(0deg)', setTimeout(function() {
+                    self.setState({
+                        show: 0
+                    });
+                }, 200));
+            })
+        },
 		handleClick:function(e){
 			window.drop=this;
 			var lists=this.refs.lists.getDOMNode(),
 				self=this,
-				ele=e.target,
-	            downOrUp = function() {
-	                requestAnimationFrame(function() {
-	                    self.state.down ? (lists.style.transform = 'translateY(0)', self.refs.drop.getDOMNode().style.transform = 'rotate(180deg)') : (lists.style.transform = 'translateY(-100%)', self.refs.drop.getDOMNode().style.transform = 'rotate(0deg)', setTimeout(function() {
-	                        self.setState({
-	                            show: 0
-	                        });
-	                    }, 200));
-	                })
-	            };
+				ele=e.target;
+	            
             switch (ele.dataset.clickid) {
                 case 'drop':
                     this.setState({
                         show: 1,
                         down: !this.state.down
-                    }, downOrUp);
+                    }, this.downOrUp);
                     break;
                 case 'option':
                     this.setState({
                         down: 0,
                         index: ele.dataset.index
-                    }, downOrUp);
+                    }, this.downOrUp);
                     break;
             }
 		},
+        handleBlur:function(e){
+            this.setState({down:0},this.downOrUp);
+        },
 		render:function(){
-
             var wrapperStyle = _.extend({
                     position: 'relative',
                     width: 112,
-                    display: 'inline-block'
+                    display: 'inline-block',
+                    outline:'none'
                 }, this.props.style),
                 spanStyle = {
                     display: 'inline-block',
@@ -60,7 +65,7 @@
                     width: '100%',
                     padding: '5px 8px',
                     boxSizing: 'border-box',
-                    cursor: 'pointer'
+                    cursor: 'pointer'                   
                 },
                 ulWrapper={
                     display:this.state.show?'block':'none',
@@ -88,9 +93,9 @@
                 };
 
 			return (
-
-				<div style={wrapperStyle} className={this.props.className} onClick={this.handleClick} >
-					<span style={spanStyle} data-clickid='drop'>
+                
+				<div style={wrapperStyle} className={this.props.className} onClick={this.handleClick} tabIndex={-1} onBlur={this.handleBlur} >
+					<span style={spanStyle} data-clickid='drop' >
 						<span data-clickid='drop'>{this.props.listDatas[this.state.index]}</span>
 						<i data-clickid='drop' ref='drop' className='icon-caret-down' style={{display:'inline-block',float:'right',transform:'rotate(0deg)',transition:'.2s ease'}}></i>
 					</span>
@@ -98,7 +103,7 @@
 						<ul style={ulStyle} ref='lists' >
 							{
 								this.props.listDatas.map(function(data,i){
-									return <li style={liStyle} data-index={i} data-clickid='option' key={_.uniqueId('data_')} >{data}</li>
+									return <li style={liStyle} data-index={i} data-clickid='option' key={_.uniqueId('data_')}  >{data}</li>
 								},this)
 							}
 						</ul>
@@ -108,9 +113,6 @@
 		}
 	});
 	
-	if(exp){
-		return exp.DropList=DropList;
-	}
 	return DropList;
 
 });
