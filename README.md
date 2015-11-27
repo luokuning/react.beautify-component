@@ -79,8 +79,8 @@ var Input = require('react.input');
 
   ![](https://github.com/luokuning/react.beautify-component/blob/master/pics/pic6.png?raw=true)
 
-  **Usage:**
-
+  
+  **Config:**
 
   参数 |类型|说明
   -----|----|-----
@@ -88,8 +88,11 @@ var Input = require('react.input');
   current|number|当前页
   countPerPage|number|每页数据条数
   onChange|function|当页数变化时的事件句柄，会传入将要跳转的页数，一般绑定从服务器取数据的函数
+  
 
+  **Usage:**
 
+  
   ```html
   <Pagination total = {200} current = {4} countPerPage = {20} onChange = {onChangeFunc} />
   ```
