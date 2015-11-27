@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>demo</title>
+	<link rel="stylesheet" type="text/css" href="../css/react.pagination.css">
+	<script src="//cdn.bootcss.com/react/0.13.3/react.min.js"></script>
+	<script src="//cdn.bootcss.com/react/0.13.3/JSXTransformer.js"></script>
+	<script src="//cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="../react.pagination.js" type="text/jsx"></script>
+	<style type="text/css" media="screen">
+		*{margin:0;padding:0;}
+		body{background: #f1f1f1;font-family: 'microsoft yahei'}
+
+	</style>
+</head>
+<body>
+	<div id="wrapper"></div>
+	<script type='text/jsx'>
+		var MyComponent = React.createClass({
+			getInitialState: function(){
+				return {
+					total: 1200,
+					current: 1,
+					countPerPage: 20
+				};
+			},
+			onChange: function(page){
+				this.setState({
+					current: page
+				});
+				console.log(page);
+			},
+			render: function(){
+
+				var state = this.state;
+
+				return (
+					<div>
+						<Pagination total = {state.total} current = {state.current} countPerPage = {state.countPerPage} onChange = {this.onChange} />
+					</div>
+				);
+			}
+		});
+
+		React.render(<MyComponent />, document.getElementById('wrapper'));
+	</script>
+</body>
+</html>

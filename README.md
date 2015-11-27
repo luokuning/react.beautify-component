@@ -91,7 +91,6 @@ var Input = require('react.input');
   
 
   **Usage:**
-
   
   ```html
   <Pagination total = {200} current = {4} countPerPage = {20} onChange = {onChangeFunc} />
