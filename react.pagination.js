@@ -6,7 +6,7 @@
             _ = require('underscore');
         module.exports = factory(React, _);
     } else {
-        root.Input = factory(React, _);
+        root.Pagination = factory(React, _);
     }
 })(this, function(React, _) {
    
