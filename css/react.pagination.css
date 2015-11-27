@@ -79,6 +79,9 @@
     height: 2em;
     line-height: 2em;
 }
+.lk-pagination ul li i{
+    line-height: 2em;
+}
 .lk-pagination ul li:not(.lk-pg-no-data):hover{
 	color:#2265ec;
 }
