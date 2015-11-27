@@ -40,10 +40,12 @@
                     top: 1,
                     left: 1,
                     border: 'solid 1px #ccc',
+                    borderColor: props.checked ? 'transparent' : '#ccc',
                     color: '#fff',
                     textAlign: 'center',
                     fontSize: '8px',
                     lineHeight: 1,
+                    transition:'.15s',
                     background: props.checked ? '#2265ec' : '#fff'
                 },
 
@@ -61,13 +63,17 @@
 
             isRadio && (divStyle.borderRadius = 10);
 			return (
-				<span style={wrapper} onMouseDown={props.onMouseDown&&props.onMouseDown} title={props.title} >
+				<span style={wrapper} onMouseDown={props.onMouseDown&&props.onMouseDown} title={props.title}  >
 					<input {...other} style={{position:'absolute',top:0,left:0,visibility:'hidden'}} ref='input' />
 					<div onClick={this.handleClick} style={handleText} >
-						<div style={divStyle}  >
-							<i className={isRadio?'icon-circle absolute-middle':'icon-ok absolute-middle'} style={{left:isRadio?0:-1, top:isRadio?0:1,transform:props.checked?(isRadio?'scale(.45)':'scale(.8)'):'scale(0)',transition:'.1s'}} ></i>
+						<div className={isRadio?(props.checked?'lk-react-radio lk-react-input':'lk-react-radio'):(props.checked?'lk-react-checkbox lk-react-input':'lk-react-checkbox')} style={divStyle}  >
+							
 						</div>
-						<span style={{color:this.props.disabled?'#ccc':'#333'}} >{this.props.children}</span>
+						<span style={{color:this.props.disabled?'#ccc':'#333'}} className={props.className} aria-label={props['aria-label']}>
+                            {
+                                props.children
+                            }
+                        </span>
 					</div>
 				</span>
 			);
