@@ -1,4 +1,14 @@
-define(['react', 'underscore'], function(React, _) {
+;(function(root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define(['react', 'underscore'], factory);
+    } else if (typeof exports !== 'undefined') {
+        var React = require('react'),
+            _ = require('underscore');
+        module.exports = factory(React, _);
+    } else {
+        root.Input = factory(React, _);
+    }
+})(this, function(React, _) {
    
     var Pagination = React.createClass({
     	getInitialState:function(){

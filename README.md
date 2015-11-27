@@ -1,4 +1,8 @@
 #react.beautify-component
+
+一套简单的基于React构建的UI，计划加入checkbox, radio, droplist, pagination, sortable (拖拽排序)。源码简单易懂，体积小巧，可以直接用，也可以自己看过之后根据需求随意改进功能。
+
+
 Some beautified component with react, you can understand just a UI component, nothing more.
 If you want to use those component in your project, I suggest you check out the source code (it's very short).
 Now it has only two components, I'll create some new component such as Pagination and Sortable in some days.
@@ -48,8 +52,6 @@ Now it has only two components, I'll create some new component such as Paginatio
   
   Obviously, `listDatas` is a array that will be used to create droplist. `className` and `style` will copy to `DropList` wrapper, so you can change the style as you want. You would like to add `.droplist li:hover{/*...*/}` (in that case classname is `droplist`) to any css file in your project if you want hover affect.
   
-  
-**Notice:** all those components rely on [Font-Awesome](http://fortawesome.github.io/Font-Awesome/).If you don't want to include `underscore`, just replace `_.extend` and `_.uniqueId` to your own function in source code and make sure it can merge two object.
 
 You can either include the component in a `<script>` tag (after you've include React and underscore/lodash) or through RequireJS/AMD and CommonJS:
  ```javascript
@@ -71,3 +73,10 @@ or
 ```javascript
 var Input = require('react.input');
 ```
+
+3. react.pagination
+
+
+  ![](https://github.com/luokuning/react.beautify-component/blob/master/pics/pic6.png?raw=true)
+
+
