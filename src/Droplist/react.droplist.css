@@ -1,0 +1,45 @@
+ul, li {
+	list-style-type: none;
+}
+.lk-drop-fr {
+    display: inline-block;
+    border: solid 1px #ccc;
+    width: 100%;
+    padding: 5px 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.lk-drop-items-wrapper {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.lk-drop-items {
+    padding: 8px 0;
+    margin: 0;
+    border: solid 1px #ccc;
+    border-top: none;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 2;
+    background: #fff;
+    position: relative;
+    transform: translateY(-100%);
+    transition: .2s ease;
+}
+.lk-icon-caret {
+  display: inline-block;
+  float: right;
+  transform: rotate(0deg);
+  transition: .2s ease;
+}
+.lk-drop-item {
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: .1s;
+}
+.lk-drop-item:hover {
+  background: #ccc;
+}
