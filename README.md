@@ -1,6 +1,6 @@
 #react.beautify-component
 
-［Demo 和说明](http://luokuning.github.io/react.beautify-component/)
+[更详细的 Demo 和说明](http://luokuning.github.io/react.beautify-component/).
 
 一套简单的基于React构建的UI，为页面需要遵循设计稿而不得不费力更改现有 ui 框架的开发者设计，已加入 checkbox, radio, droplist, pagination, tooltip, 计划加入 sortable (拖拽排序)。源码简单易懂，体积小巧，可以直接用，也可以自己看过之后根据需求随意改进功能。
 
