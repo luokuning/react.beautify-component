@@ -8,9 +8,117 @@
 	else
 		root["Pagination"] = factory();
 })(this, function() {
-return webpackJsonp_name_([1],{
+return webpackJsonp_name_([2],{
 
 /***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(68);
+
+
+/***/ },
+
+/***/ 8:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	exports.__esModule = true;
+
+	var _assign = __webpack_require__(29);
+
+	var _assign2 = _interopRequireDefault(_assign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _assign2.default || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];
+
+	    for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }
+
+	  return target;
+	};
+
+/***/ },
+
+/***/ 26:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 29:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(30), __esModule: true };
+
+/***/ },
+
+/***/ 30:
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(37);
+	module.exports = __webpack_require__(9).Object.assign;
+
+/***/ },
+
+/***/ 33:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	// 19.1.2.1 Object.assign(target, source, ...)
+	var getKeys  = __webpack_require__(25)
+	  , gOPS     = __webpack_require__(41)
+	  , pIE      = __webpack_require__(35)
+	  , toObject = __webpack_require__(42)
+	  , IObject  = __webpack_require__(47)
+	  , $assign  = Object.assign;
+
+	// should work with symbols and should have deterministic property order (V8 bug)
+	module.exports = !$assign || __webpack_require__(20)(function(){
+	  var A = {}
+	    , B = {}
+	    , S = Symbol()
+	    , K = 'abcdefghijklmnopqrst';
+	  A[S] = 7;
+	  K.split('').forEach(function(k){ B[k] = k; });
+	  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+	}) ? function assign(target, source){ // eslint-disable-line no-unused-vars
+	  var T     = toObject(target)
+	    , aLen  = arguments.length
+	    , index = 1
+	    , getSymbols = gOPS.f
+	    , isEnum     = pIE.f;
+	  while(aLen > index){
+	    var S      = IObject(arguments[index++])
+	      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
+	      , length = keys.length
+	      , j      = 0
+	      , key;
+	    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
+	  } return T;
+	} : $assign;
+
+/***/ },
+
+/***/ 37:
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.3.1 Object.assign(target, source)
+	var $export = __webpack_require__(18);
+
+	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(33)});
+
+/***/ },
+
+/***/ 68:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19,38 +127,38 @@ return webpackJsonp_name_([1],{
 	  value: true
 	});
 
-	var _extends2 = __webpack_require__(54);
+	var _extends2 = __webpack_require__(8);
 
 	var _extends3 = _interopRequireDefault(_extends2);
 
-	var _getPrototypeOf = __webpack_require__(51);
+	var _getPrototypeOf = __webpack_require__(11);
 
 	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-	var _classCallCheck2 = __webpack_require__(52);
+	var _classCallCheck2 = __webpack_require__(12);
 
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-	var _createClass2 = __webpack_require__(53);
+	var _createClass2 = __webpack_require__(13);
 
 	var _createClass3 = _interopRequireDefault(_createClass2);
 
-	var _possibleConstructorReturn2 = __webpack_require__(56);
+	var _possibleConstructorReturn2 = __webpack_require__(15);
 
 	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-	var _inherits2 = __webpack_require__(55);
+	var _inherits2 = __webpack_require__(14);
 
 	var _inherits3 = _interopRequireDefault(_inherits2);
 
-	var _react = __webpack_require__(50);
+	var _react = __webpack_require__(10);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(71);
-	__webpack_require__(183);
+	__webpack_require__(26);
+	__webpack_require__(84);
 
 	var Pagination = function (_Component) {
 	  (0, _inherits3.default)(Pagination, _Component);
@@ -148,7 +256,7 @@ return webpackJsonp_name_([1],{
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'lk-pagination clearfix' },
+	        { className: 'lk-pagination clearfix', style: { textAlign: props.center ? 'center' : 'inherit' } },
 	        _react2.default.createElement(
 	          'ul',
 	          { onClick: this.handleChangePage },
@@ -190,21 +298,14 @@ return webpackJsonp_name_([1],{
 	  totoal: _react.PropTypes.number,
 	  current: _react.PropTypes.number,
 	  countPerPage: _react.PropTypes.number,
+	  center: _react.PropTypes.bool,
 	  onChange: _react.PropTypes.func.isRequired
-
 	};
 	exports.default = Pagination;
 
 /***/ },
 
-/***/ 71:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 183:
+/***/ 84:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

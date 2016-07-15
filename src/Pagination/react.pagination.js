@@ -8,8 +8,8 @@ class Pagination extends Component {
     totoal: PropTypes.number,
     current: PropTypes.number,
     countPerPage: PropTypes.number,
+    center: PropTypes.bool,
     onChange: PropTypes.func.isRequired
-
   }
   state = {
     total: this.props.total || 0,
@@ -85,7 +85,7 @@ class Pagination extends Component {
     }
 
     return (
-      <div className='lk-pagination clearfix' >
+      <div className='lk-pagination clearfix' style={{textAlign: props.center?'center':'inherit'}}>
         <ul onClick={this.handleChangePage} >
           <li
             onClick={this._prev}

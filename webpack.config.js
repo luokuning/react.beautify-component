@@ -24,10 +24,12 @@ var config = {
     ]
   },
   entry: {
-    Input: './src/Input/react.input',
-    Droplist: './src/Droplist/react.droplist',
-    Pagination: './src/Pagination/react.pagination',
-    // Components: ['./src/Input/react.input', './src/Droplist/react.droplist', './src/Pagination/react.pagination', './src/index'],
+    // 用数组的写法详见：https://github.com/webpack/webpack/issues/300
+    Input: ['./src/Input/react.input'],
+    Droplist: ['./src/Droplist/react.droplist'],
+    Pagination: ['./src/Pagination/react.pagination'],
+    Tooltip: ['./src/Tooltip/react.tooltip'],
+    Components: ['./src/Input/react.input', './src/Droplist/react.droplist', './src/Pagination/react.pagination', './src/Tooltip/react.tooltip', './src/index'],
     vendor: ['react', 'react-dom']
   },
   output: {

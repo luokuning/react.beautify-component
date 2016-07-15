@@ -28,28 +28,28 @@ class Input extends Component {
         handleText = {
           cursor: props.cursorAllowed ? 'pointer' : (props.disabled ? 'not-allowed' : 'pointer'),
           paddingLeft: 19,
-          paddingTop: 1,
-          height: 18
+          height: '1em',
+          lineHeight: '1em'
         },
         {
           children, style, onMouseDown, title, ...other
         } = props,
         isRadio = props.type === 'radio',
         divStyle = {
-          width: 12,
-          height: 12,
+          width: '1em',
+          height: '1em',
           position: 'absolute',
-          top: 1,
+          top: -1,
           left: 1,
           border: 'solid 1px #ccc',
           borderColor: props.checked ? 'transparent' : '#ccc',
           color: '#fff',
           textAlign: 'center',
-          fontSize: '8px',
           lineHeight: 1,
           transition:'.15s',
-          background: props.checked ? '#2265ec' : '#fff',
-          borderRadius: 3
+          boxSizing: 'border-box',
+          borderRadius: 2,
+          background: props.checked ? '#3a86ff' : '#fff'
         },
 
         wrapper = {
@@ -87,8 +87,7 @@ class Input extends Component {
           </div>
           <span
             style={{color: props.disabled ? '#ccc' : '#000'}}
-            className={props.className}
-            aria-label={props['aria-label']}>
+            className={props.className}>
             {props.children}
           </span>
         </div>

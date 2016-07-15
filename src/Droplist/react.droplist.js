@@ -7,6 +7,7 @@ class Droplist extends Component {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
+    roundedCorner: PropTypes.bool,
     default: PropTypes.string.isRequired,
     listDatas: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired
@@ -61,6 +62,7 @@ class Droplist extends Component {
         position: 'relative',
         display: 'inline-block',
         outline: 'none',
+        width: 120,
         ...this.props.style
     }
     let props = this.props
@@ -69,12 +71,12 @@ class Droplist extends Component {
     return (
 
       <div style={wrapperStyle} className={props.className} onClick={this.handleClick} tabIndex={-1} onBlur={this.handleBlur} >
-        <span className='lk-drop-fr' data-clickid='drop' >
+        <span className='lk-drop-fr' data-clickid='drop' style={{borderRadius: props.roundedCorner?4:0}} >
           <span data-clickid='drop'>{props.default}</span>
           <i data-clickid='drop' ref='drop' className='icon-down-dir lk-icon-caret'></i>
         </span>
-        <div style={{display: this.state.show?'block':'none'}} className='lk-drop-items-wrapper' >
-          <ul className='lk-drop-items' ref='lists' >
+        <div style={{display: this.state.show?'block':'none', marginTop: props.roundedCorner?4:0}} className='lk-drop-items-wrapper' >
+          <ul className='lk-drop-items' ref='lists' style={{borderRadius: props.roundedCorner?4:0, borderTop:props.roundedCorner?'solid 1px #ccc':'none'}}>
             {
               props.listDatas.map((data,i) => {
                 return <li className='lk-drop-item' data-data={data} data-clickid='option' key={'data' + i} >{data}</li>

@@ -1,0 +1,45 @@
+.tooltip-disappear{
+	display:none !important;
+}
+.tooltip-wrapper{
+	position: absolute;
+    pointer-events: none;
+}
+.tooltip-wrapper:before {
+    position: absolute;
+    z-index: 1000001;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    color: rgba(0,0,0,0.8);
+    pointer-events: none;
+    content: "";
+    border: 5px solid transparent;
+    right: 50%;
+    top: -8px;
+    margin-right: -5px;
+    border-top-color: rgba(0,0,0,0.8);
+}
+.tooltip-wrapper:after{
+	display: inline-block;
+	position: absolute;
+    z-index: 1000000;
+    padding: 5px 8px;
+    font: normal normal 11px/1.5 'microsoft yahei';
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: break-word;
+    white-space: pre;
+    pointer-events: none;
+    content: attr(aria-label);
+    background: rgba(0,0,0,0.8);
+    border-radius: 3px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    transform: translate(50%, -100%);
+    top: -8px;
+    right: 50%;
+}
