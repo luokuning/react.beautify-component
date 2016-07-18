@@ -14,6 +14,7 @@ var config = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
   },
+  devtool: '#cheap-module-source-map',
   module: {
     loaders: [
       {

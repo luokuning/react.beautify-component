@@ -17,9 +17,9 @@ class Pagination extends Component {
     countPerPage: this.props.countPerPage || 5
   }
   handleChangePage = (e) => {
-    var page = e.target.dataset.page;
+    let page = e.target.dataset.page
     if (!isNaN(page - 0) && this.state.current != page) {
-      this.props.onChange(page);
+      this.props.onChange(page - 0);
     }
   }
   _next = () => {
@@ -33,7 +33,7 @@ class Pagination extends Component {
     }
   }
   componentWillReceiveProps(nextProps) {
-    let {total, current, countPerPage} = nextProps
+    let {total, current = 1, countPerPage = 5} = nextProps
     this.state = {
       ...this.state,
       total,

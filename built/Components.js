@@ -528,7 +528,7 @@ return webpackJsonp_name_([1],{
 	    }, _this.handleChangePage = function (e) {
 	      var page = e.target.dataset.page;
 	      if (!isNaN(page - 0) && _this.state.current != page) {
-	        _this.props.onChange(page);
+	        _this.props.onChange(page - 0);
 	      }
 	    }, _this._next = function () {
 	      if (_this.state.current < Math.ceil(_this.state.total / _this.state.countPerPage)) {
@@ -545,8 +545,10 @@ return webpackJsonp_name_([1],{
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
 	      var total = nextProps.total;
-	      var current = nextProps.current;
-	      var countPerPage = nextProps.countPerPage;
+	      var _nextProps$current = nextProps.current;
+	      var current = _nextProps$current === undefined ? 1 : _nextProps$current;
+	      var _nextProps$countPerPa = nextProps.countPerPage;
+	      var countPerPage = _nextProps$countPerPa === undefined ? 5 : _nextProps$countPerPa;
 
 	      this.state = (0, _extends3.default)({}, this.state, {
 	        total: total,
@@ -1216,7 +1218,7 @@ return webpackJsonp_name_([1],{
 	    }, _this.handleChangePage = function (e) {
 	      var page = e.target.dataset.page;
 	      if (!isNaN(page - 0) && _this.state.current != page) {
-	        _this.props.onChange(page);
+	        _this.props.onChange(page - 0);
 	      }
 	    }, _this._next = function () {
 	      if (_this.state.current < Math.ceil(_this.state.total / _this.state.countPerPage)) {
@@ -1233,8 +1235,10 @@ return webpackJsonp_name_([1],{
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
 	      var total = nextProps.total;
-	      var current = nextProps.current;
-	      var countPerPage = nextProps.countPerPage;
+	      var _nextProps$current = nextProps.current;
+	      var current = _nextProps$current === undefined ? 1 : _nextProps$current;
+	      var _nextProps$countPerPa = nextProps.countPerPage;
+	      var countPerPage = _nextProps$countPerPa === undefined ? 5 : _nextProps$countPerPa;
 
 	      this.state = (0, _extends3.default)({}, this.state, {
 	        total: total,

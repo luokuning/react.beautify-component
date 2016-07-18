@@ -2490,10 +2490,30 @@
 
 	var process = module.exports = {};
 
-	// cached from whatever global is present so that test runners that stub it don't break things.
-	var cachedSetTimeout = setTimeout;
-	var cachedClearTimeout = clearTimeout;
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
 
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	(function () {
+	  try {
+	    cachedSetTimeout = setTimeout;
+	  } catch (e) {
+	    cachedSetTimeout = function () {
+	      throw new Error('setTimeout is not defined');
+	    }
+	  }
+	  try {
+	    cachedClearTimeout = clearTimeout;
+	  } catch (e) {
+	    cachedClearTimeout = function () {
+	      throw new Error('clearTimeout is not defined');
+	    }
+	  }
+	} ())
 	var queue = [];
 	var draining = false;
 	var currentQueue;
@@ -23551,7 +23571,7 @@
 	  type: _react.PropTypes.string.isRequired,
 	  onChange: _react.PropTypes.func.isRequired
 	};
-	exports.default = Input;
+		exports.default = Input;
 
 /***/ },
 /* 265 */
@@ -24078,7 +24098,7 @@
 	  listDatas: _react.PropTypes.array.isRequired,
 	  onChange: _react.PropTypes.func.isRequired
 	};
-	exports.default = Droplist;
+		exports.default = Droplist;
 
 /***/ },
 /* 271 */
@@ -24254,7 +24274,7 @@
 	    }, _this.handleChangePage = function (e) {
 	      var page = e.target.dataset.page;
 	      if (!isNaN(page - 0) && _this.state.current != page) {
-	        _this.props.onChange(page);
+	        _this.props.onChange(page - 0);
 	      }
 	    }, _this._next = function () {
 	      if (_this.state.current < Math.ceil(_this.state.total / _this.state.countPerPage)) {
@@ -24271,8 +24291,10 @@
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
 	      var total = nextProps.total;
-	      var current = nextProps.current;
-	      var countPerPage = nextProps.countPerPage;
+	      var _nextProps$current = nextProps.current;
+	      var current = _nextProps$current === undefined ? 1 : _nextProps$current;
+	      var _nextProps$countPerPa = nextProps.countPerPage;
+	      var countPerPage = _nextProps$countPerPa === undefined ? 5 : _nextProps$countPerPa;
 
 	      this.state = (0, _extends3.default)({}, this.state, {
 	        total: total,
@@ -24374,7 +24396,7 @@
 	  center: _react.PropTypes.bool,
 	  onChange: _react.PropTypes.func.isRequired
 	};
-	exports.default = Pagination;
+		exports.default = Pagination;
 
 /***/ },
 /* 281 */
@@ -24537,7 +24559,7 @@
 		return Tooltip;
 	}(_react.Component);
 
-	exports.default = Tooltip;
+		exports.default = Tooltip;
 
 /***/ },
 /* 284 */
@@ -24904,7 +24926,7 @@
 	    });
 	};
 
-	var hljs = __webpack_require__(287);
+		var hljs = __webpack_require__(287);
 
 /***/ },
 /* 287 */
@@ -24995,3 +25017,4 @@
 
 /***/ }
 /******/ ]);
+//# sourceMappingURL=bundle.js.map
