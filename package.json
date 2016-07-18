@@ -33,8 +33,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "highlight.js": "git+https://github.com/isagalaev/highlight.js.git",
-    "react": "^15.2.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1"

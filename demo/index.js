@@ -238,11 +238,23 @@ class DroplistField extends Component {
 class PaginationField extends Component {
   state = {
     total: 238,
-    current: 1
+    currentA: 1,
+    currentB: 20,
+    currentC: 1
   }
-  onChange = (page) => {
+  onChangeA = (page) => {
     this.setState({
-      current: page
+      currentA: page
+    })
+  }
+  onChangeB = (page) => {
+    this.setState({
+      currentB: page
+    })
+  }
+  onChangeC = (page) => {
+    this.setState({
+      currentC: page
     })
   }
   render() {
@@ -255,11 +267,11 @@ class PaginationField extends Component {
         <div className='clearfix field-wrapper'>
           <div className='left-content'>在找分页控件？</div>
           <div className='right-demo'>
-            <Pagination total={state.total} current={state.current} countPerPage={6} onChange={this.onChange} />
+            <Pagination total={state.total} current={state.currentA} countPerPage={6} onChange={this.onChangeA} />
             <pre>
               <code>
                 {
-                  `<Pagination total={state.total} current={state.current} countPerPage='6' onChange={this.onChange} />`
+                  `<Pagination total={state.total} current={state.currentA} countPerPage='6' onChange={this.onChangeA} />`
                 }
               </code>
             </pre>
@@ -269,11 +281,11 @@ class PaginationField extends Component {
             想居中显示？
           </div>
           <div className='right-demo mt20'>
-            <Pagination center={true} total={state.total} current={state.current} countPerPage={6} onChange={this.onChange} />
+            <Pagination center={true} total={state.total} current={state.currentB} countPerPage={6} onChange={this.onChangeB} />
             <pre>
               <code>
                 {
-                  `<Pagination center={true} total={state.total} current={state.current} countPerPage='6' onChange={this.onChange} />`
+                  `<Pagination center={true} total={state.total} current={state.currentB} countPerPage='6' onChange={this.onChangeB} />`
                 }
               </code>
             </pre>
@@ -283,11 +295,11 @@ class PaginationField extends Component {
             担心无数据会导致显示不正常？
           </div>
           <div className='right-demo mt20'>
-            <Pagination total={0} onChange={this.onChange} />
+            <Pagination total={0} onChange={this.onChangeC} />
             <pre>
               <code>
                 {
-                  `<Pagination total=0 onChange={this.onChange} />`
+                  `<Pagination total=0 onChange={this.onChangeC} />`
                 }
               </code>
             </pre>
